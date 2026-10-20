@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local tooling
+.claude/
+
+# Working files that aren't part of the website
+The Third Place Brand Book.pdf
+index_8.html
+social-logos/
