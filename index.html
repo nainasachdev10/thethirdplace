@@ -20,11 +20,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;1,300&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261024b">
+<link rel="stylesheet" href="css/styles.css?v=20261024c">
 <!-- Optional effects (switches in js/fx.js). Remove this line + the two fx scripts below to turn them all off. -->
 <link rel="stylesheet" href="css/fx.css?v=20261023g">
 <!-- Story layer (switches in js/story.js). Remove this line + the story.js script below to turn it all off. -->
-<link rel="stylesheet" href="css/story.css?v=20261024m">
+<link rel="stylesheet" href="css/story.css?v=20261024n">
 <script>(function(c){c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)c.add('intro')}catch(e){}
 /* every load and refresh starts at the top: no restored scroll, and any #section is dropped from the address */
 if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search)})(document.documentElement.classList)</script>
@@ -61,12 +61,11 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
     </a>
     <nav aria-label="Main">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#spaces"><span class="n">01</span>Spaces</a></li>
-        <li><a href="#memberships"><span class="n">02</span>Memberships</a></li>
-        <li><a href="#studio"><span class="n">03</span>The Studio</a></li>
-        <li><a href="#community"><span class="n">04</span>Community</a></li>
-        <li><a href="#pricing"><span class="n">05</span>Pricing</a></li>
-        <li><a href="#about"><span class="n">06</span>About</a></li>
+        <li><a href="#community"><span class="n">01</span>Community</a></li>
+        <li><a href="#about"><span class="n">02</span>About</a></li>
+        <li><a href="#spaces"><span class="n">03</span>Spaces</a></li>
+        <li><a href="#studio"><span class="n">04</span>The Studio</a></li>
+        <li><a href="#memberships"><span class="n">05</span>Memberships</a></li>
         <li class="menu-cta">
           <a href="#visit" class="btn btn-clay">Book a tour</a>
           <a href="#" class="btn btn-ghost" data-wa="Hi! I'd like to know more about The Third Place.">WhatsApp us</a>
@@ -152,6 +151,51 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
         <div class="mf-card clay" data-x=".3" data-y=".3" data-r="-7"><span class="label">Fridays</span><b>Wine-down</b></div>
         <div class="mf-card" data-x="-.38" data-y=".02" data-r="3"><span class="label">Monthly</span><b>Demo nights</b></div>
         <div class="mf-card" data-x=".38" data-y="0" data-r="-4"><span class="label">The balcony</span><b>Step out &amp; breathe</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section id="community">
+  <div class="wrap">
+    <div class="section-head split reveal">
+      <p class="kicker">Community &amp; events</p>
+      <h2>Where <em>Nashik</em> meets.</h2>
+      <p class="lede">A workspace is just furniture until people fill it. Our calendar is what makes The Third Place a third place.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="kicker">About</p>
+      <h2>Every city needs <em>a third place.</em></h2>
+    </div>
+
+    <div class="reveal about-story">
+      <p>We kept noticing the same thing: Nashik was full of talented people working alone. Founders at home, freelancers in cafés, teams in offices that closed the door on the city around them.</p>
+      <p>There was a first place and a second place, but no third. So we built one: a single floor where Nashik’s professionals, founders, and creators could work, meet, record, and belong.</p>
+    </div>
+
+    <ul class="reveal believe">
+      <li><b>Community over square footage</b><span>We rent desks, but we build a place.</span></li>
+      <li><b>Made in Nashik, for Nashik</b><span>Local by conviction, not by default.</span></li>
+      <li><b>Give the city a voice</b><span>Which is why we built a studio, not just a boardroom.</span></li>
+      <li><b>Room for everyone</b><span>The intern and the CEO share the same coffee machine.</span></li>
+    </ul>
+
+    <div class="reveal about-two">
+      <div>
+        <h3>The space</h3>
+        <p>A full fourth floor at Canada Corner, designed as one continuous flow: private cabins along a focused corporate spine, open startup edges, a studio at the core, and a balcony to step out and breathe. Built to feel less like an office and more like the best part of the city.</p>
+      </div>
+      <div>
+        <h3>Digital <em>Nashik</em></h3>
+        <p>Nashik is known for its vineyards. We think it’s ready to be known for what it builds. The Third Place is a small piece of infrastructure for a bigger idea: a Nashik that keeps its talent, backs its founders, and puts itself on India’s digital map.</p>
       </div>
     </div>
   </div>
@@ -247,6 +291,94 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
   </div>
 </section>
 
+<!-- ============ EVENTS: the Amphitheatre + calendar ============ -->
+<section id="events-floor" aria-label="Events and the Amphitheatre">
+  <div class="wrap">
+    <div class="amph reveal">
+      <div class="stage" id="stage" aria-hidden="true">
+        <div class="seats" id="seats"><span class="podium">The stage</span></div>
+        <div class="panels"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="label">Glass partition · closed</span>
+      </div>
+      <div>
+        <h3>The <em>Amphitheatre</em></h3>
+        <p>The floor opens up. A glass partition folds back and the main space becomes a stage for launches, talks, demo days and screenings.</p>
+        <button class="toggle" id="foldBtn" aria-pressed="false"><span class="sw"></span><span id="foldLbl">Fold the glass back</span></button>
+      </div>
+    </div>
+
+    <div class="calendar reveal">
+      <div class="calendar-aside">
+        <h3>On the <em>calendar</em></h3>
+        <p class="muted">Six ways the floor fills up. Scroll the deck.</p>
+      </div>
+    <ul class="events" id="events">
+      <li class="event"><span class="when"><span>01</span><span>Mornings</span></span><h4>Founder breakfasts</h4><p>The people building Nashik’s companies, over coffee.</p></li>
+      <li class="event"><span class="when"><span>02</span><span>Monthly</span></span><h4>Demo nights</h4><p>Startups and creators show what they’ve made.</p></li>
+      <li class="event"><span class="when"><span>03</span><span>Hands-on</span></span><h4>Skill workshops</h4><p>Sessions on the things that move work forward.</p></li>
+      <li class="event"><span class="when"><span>04</span><span>Creators</span></span><h4>Creator meetups</h4><p>For Nashik’s podcasters, editors, and storytellers.</p></li>
+      <li class="event"><span class="when"><span>05</span><span>Fridays</span></span><h4>Wine-down Fridays</h4><p>A nod to the city we’re in. The week, wound down.</p></li>
+      <li class="event"><span class="when"><span>06</span><span>Midday</span></span><h4>Community lunches</h4><p>The easiest way to meet the floor.</p></li>
+    </ul>
+    </div>
+
+    <div class="host reveal">
+      <div>
+        <h3>Host your own event</h3>
+        <p>Launches, offsites, workshops, screenings. The Amphitheatre is yours to book, with the Studio next door if you want it on record.</p>
+      </div>
+      <div class="btns">
+        <a href="#visit" class="btn btn-paper" data-interest="Hosting an event">Plan an event <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE STUDIO ============ -->
+<section class="studio on-ink" id="studio">
+  <div class="wrap">
+    <div class="section-head split reveal">
+      <p class="kicker">Podcast &amp; content studio</p>
+      <h2>Nashik’s voice, <em>on the record.</em></h2>
+      <p class="lede">The Studio is why The Third Place isn’t just another coworking space. Acoustically treated, camera-ready, and open to members and the public. It’s where Nashik’s founders, brands and creators record the work that gets them heard.</p>
+    </div>
+
+    <div class="reveal studio-cols">
+      <div>
+        <h3>What you can <em>make</em> here</h3>
+        <ul class="make-list">
+          <li>Podcasts, audio and video</li>
+          <li>Founder &amp; brand interviews</li>
+          <li>YouTube and long-form video</li>
+          <li>Reels, shorts, and social clips</li>
+          <li>Voiceovers and narration</li>
+          <li>Online courses and webinars</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The setup</h3>
+        <p class="body">Purpose-built at the centre of the floor, with no windows by design, for clean, controlled sound. Professional microphones, cameras, and lighting, with a layout ready for a solo recording or a full panel.</p>
+        <p class="body">Members get preferred rates and priority slots. Not a member? Book by the hour or half-day.</p>
+      </div>
+    </div>
+
+    <div class="creator reveal">
+      <div>
+        <h3>Record in one room, <em>cut in the next.</em></h3>
+        <p>Steps from the Studio sits the Creator Zone, a space to edit, shoot b-roll, and produce. Record, edit and publish without leaving the building.</p>
+      </div>
+    </div>
+
+    <div class="cta-row reveal">
+      <p>Ask us for the full kit list and current rates.</p>
+      <div class="btns">
+        <a href="#visit" class="btn btn-paper" data-interest="The Studio">Book the Studio <span class="arrow">↗</span></a>
+        <a href="#visit" class="btn btn-line-paper">Come see it</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ MEMBERSHIPS ============ -->
 <section id="memberships">
   <div class="wrap">
@@ -320,122 +452,6 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
         <li>A community events calendar</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- ============ THE STUDIO ============ -->
-<section class="studio on-ink" id="studio">
-  <div class="wrap">
-    <div class="section-head split reveal">
-      <p class="kicker">Podcast &amp; content studio</p>
-      <h2>Nashik’s voice, <em>on the record.</em></h2>
-      <p class="lede">The Studio is why The Third Place isn’t just another coworking space. Acoustically treated, camera-ready, and open to members and the public. It’s where Nashik’s founders, brands and creators record the work that gets them heard.</p>
-    </div>
-
-    <div class="reveal studio-cols">
-      <div>
-        <h3>What you can <em>make</em> here</h3>
-        <ul class="make-list">
-          <li>Podcasts, audio and video</li>
-          <li>Founder &amp; brand interviews</li>
-          <li>YouTube and long-form video</li>
-          <li>Reels, shorts, and social clips</li>
-          <li>Voiceovers and narration</li>
-          <li>Online courses and webinars</li>
-        </ul>
-      </div>
-      <div>
-        <h3>The setup</h3>
-        <p class="body">Purpose-built at the centre of the floor, with no windows by design, for clean, controlled sound. Professional microphones, cameras, and lighting, with a layout ready for a solo recording or a full panel.</p>
-        <p class="body">Members get preferred rates and priority slots. Not a member? Book by the hour or half-day.</p>
-      </div>
-    </div>
-
-    <div class="creator reveal">
-      <div>
-        <h3>Record in one room, <em>cut in the next.</em></h3>
-        <p>Steps from the Studio sits the Creator Zone, a space to edit, shoot b-roll, and produce. Record, edit and publish without leaving the building.</p>
-      </div>
-    </div>
-
-    <div class="cta-row reveal">
-      <p>Ask us for the full kit list and current rates.</p>
-      <div class="btns">
-        <a href="#visit" class="btn btn-paper" data-interest="The Studio">Book the Studio <span class="arrow">↗</span></a>
-        <a href="#visit" class="btn btn-line-paper">Come see it</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMMUNITY ============ -->
-<section id="community">
-  <div class="wrap">
-    <div class="section-head split reveal">
-      <p class="kicker">Community &amp; events</p>
-      <h2>Where <em>Nashik</em> meets.</h2>
-      <p class="lede">A workspace is just furniture until people fill it. Our calendar is what makes The Third Place a third place.</p>
-    </div>
-
-    <div class="amph reveal">
-      <div class="stage" id="stage" aria-hidden="true">
-        <div class="seats" id="seats"><span class="podium">The stage</span></div>
-        <div class="panels"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <span class="label">Glass partition · closed</span>
-      </div>
-      <div>
-        <h3>The <em>Amphitheatre</em></h3>
-        <p>The floor opens up. A glass partition folds back and the main space becomes a stage for launches, talks, demo days and screenings.</p>
-        <button class="toggle" id="foldBtn" aria-pressed="false"><span class="sw"></span><span id="foldLbl">Fold the glass back</span></button>
-      </div>
-    </div>
-
-    <div class="calendar reveal">
-      <div class="calendar-aside">
-        <h3>On the <em>calendar</em></h3>
-        <p class="muted">Six ways the floor fills up. Scroll the deck.</p>
-      </div>
-    <ul class="events" id="events">
-      <li class="event"><span class="when"><span>01</span><span>Mornings</span></span><h4>Founder breakfasts</h4><p>The people building Nashik’s companies, over coffee.</p></li>
-      <li class="event"><span class="when"><span>02</span><span>Monthly</span></span><h4>Demo nights</h4><p>Startups and creators show what they’ve made.</p></li>
-      <li class="event"><span class="when"><span>03</span><span>Hands-on</span></span><h4>Skill workshops</h4><p>Sessions on the things that move work forward.</p></li>
-      <li class="event"><span class="when"><span>04</span><span>Creators</span></span><h4>Creator meetups</h4><p>For Nashik’s podcasters, editors, and storytellers.</p></li>
-      <li class="event"><span class="when"><span>05</span><span>Fridays</span></span><h4>Wine-down Fridays</h4><p>A nod to the city we’re in. The week, wound down.</p></li>
-      <li class="event"><span class="when"><span>06</span><span>Midday</span></span><h4>Community lunches</h4><p>The easiest way to meet the floor.</p></li>
-    </ul>
-    </div>
-
-    <div class="host reveal">
-      <div>
-        <h3>Host your own event</h3>
-        <p>Launches, offsites, workshops, screenings. The Amphitheatre is yours to book, with the Studio next door if you want it on record.</p>
-      </div>
-      <div class="btns">
-        <a href="#visit" class="btn btn-paper" data-interest="Hosting an event">Plan an event <span class="arrow">↗</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section class="tint" id="pricing">
-  <div class="wrap">
-    <div class="section-head split reveal">
-      <p class="kicker">Pricing</p>
-      <h2>Simple plans. <em>Room to grow.</em></h2>
-      <p class="lede">Flexible terms that move with you. Upgrade, downgrade, or add a cabin as your team changes. Tap any plan to ask for today’s rate.</p>
-    </div>
-
-    <div class="reveal"><span class="price-note pill">Introductory rates · just ask</span></div>
-
-    <ul class="price-table reveal">
-      <li class="price-row"><a href="#visit" data-interest="Day pass"><span class="pname">Day Pass</span><span class="punit">A full day on the floor</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-      <li class="price-row"><a href="#visit" data-interest="Hot desk"><span class="pname">Hot Desk</span><span class="punit">Any open seat, monthly</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-      <li class="price-row"><a href="#visit" data-interest="Dedicated desk"><span class="pname">Dedicated Desk</span><span class="punit">Your own desk, monthly</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-      <li class="price-row"><a href="#visit" data-interest="Private cabin"><span class="pname">Private Cabin</span><span class="punit">Per seat, per month</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-      <li class="price-row"><a href="#visit" data-interest="The Studio"><span class="pname">The Studio</span><span class="punit">Per hour · member rate available</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-      <li class="price-row"><a href="#visit" data-interest="Meeting room"><span class="pname">Meeting Rooms</span><span class="punit">Per hour · free credits for members</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-    </ul>
 
     <div class="aside-row faq reveal">
       <h3>Good questions</h3>
@@ -445,39 +461,6 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
         <details><summary>Can non-members use the Studio and meeting rooms?</summary><p>Yes, at standard hourly rates. Members get preferred rates and priority slots.</p></details>
         <details><summary>What about GST?</summary><p>18% GST applies to coworking services in India. We’ll always tell you clearly whether a quoted price includes it.</p></details>
         <details><summary>Can I visit before I decide?</summary><p>Please do. Book a tour, or pick up a Day Pass and spend a day on the floor.</p></details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section id="about">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="kicker">About</p>
-      <h2>Every city needs <em>a third place.</em></h2>
-    </div>
-
-    <div class="reveal about-story">
-      <p>We kept noticing the same thing: Nashik was full of talented people working alone. Founders at home, freelancers in cafés, teams in offices that closed the door on the city around them.</p>
-      <p>There was a first place and a second place, but no third. So we built one: a single floor where Nashik’s professionals, founders, and creators could work, meet, record, and belong.</p>
-    </div>
-
-    <ul class="reveal believe">
-      <li><b>Community over square footage</b><span>We rent desks, but we build a place.</span></li>
-      <li><b>Made in Nashik, for Nashik</b><span>Local by conviction, not by default.</span></li>
-      <li><b>Give the city a voice</b><span>Which is why we built a studio, not just a boardroom.</span></li>
-      <li><b>Room for everyone</b><span>The intern and the CEO share the same coffee machine.</span></li>
-    </ul>
-
-    <div class="reveal about-two">
-      <div>
-        <h3>The space</h3>
-        <p>A full fourth floor at Canada Corner, designed as one continuous flow: private cabins along a focused corporate spine, open startup edges, a studio at the core, and a balcony to step out and breathe. Built to feel less like an office and more like the best part of the city.</p>
-      </div>
-      <div>
-        <h3>Digital <em>Nashik</em></h3>
-        <p>Nashik is known for its vineyards. We think it’s ready to be known for what it builds. The Third Place is a small piece of infrastructure for a bigger idea: a Nashik that keeps its talent, backs its founders, and puts itself on India’s digital map.</p>
       </div>
     </div>
   </div>
@@ -617,7 +600,6 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
         <ul>
           <li><a href="#spaces">The floor</a></li>
           <li><a href="#community">Community &amp; events</a></li>
-          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#about">About</a></li>
         </ul>
       </div>
@@ -651,11 +633,11 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
   <a href="#visit" class="primary">Book a tour</a>
 </div>
 
-<script src="js/main.js?v=20261023g" defer></script>
+<script src="js/main.js?v=20261024a" defer></script>
 <script src="js/motion.js?v=20261023g" defer></script>
 <!-- Optional effects: smooth-scroll library (pinned version + integrity check) and the effects file -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous" defer></script>
 <script src="js/fx.js?v=20261023h" defer></script>
-<script src="js/story.js?v=20261024l" defer></script>
+<script src="js/story.js?v=20261024n" defer></script>
 </body>
 </html>

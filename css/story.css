@@ -106,7 +106,7 @@
 
 /* ---------- 4. Community: heading + the city forming from people, one pinned screen ---------- */
 #community.st-crowd-on{padding-top:0}
-.st-crowd{position:relative;height:320vh;margin-bottom:var(--block)}
+.st-crowd{position:relative;height:320vh}
 .st-crowd-stage{position:sticky;top:var(--header-h);height:calc(100vh - var(--header-h));height:calc(100svh - var(--header-h));
   display:flex;flex-direction:column;padding-top:clamp(24px,6vh,64px)}
 .st-crowd-head .section-head{margin-bottom:0}

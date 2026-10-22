@@ -97,7 +97,7 @@
       $$('a', navLinks).forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
     });
   }, {rootMargin:'-45% 0px -50% 0px'});
-  ['home','spaces','memberships','studio','community','pricing','about','visit'].forEach(id => spy.observe(document.getElementById(id)));
+  ['home','spaces','memberships','studio','community','about','visit'].forEach(id => spy.observe(document.getElementById(id)));
 
   // Floor plan <-> zone list
   const zones = $$('#plan .fz');

@@ -102,7 +102,7 @@ h2{font-size:var(--t-h2);line-height:1.04;letter-spacing:-.02em}
 h3{font-size:var(--t-h3);line-height:1.12}
 /* Spectral is for large headlines only (Brand Book: "used sparingly and large").
    Smaller headings use Bricolage Semibold. */
-h4,.title,.m-card h3,.aside-row>h3,.zone-btn .zt,.price-row .pname,.believe li b,.finder .q{
+h4,.title,.m-card h3,.aside-row>h3,.zone-btn .zt,.believe li b,.finder .q{
   font-family:var(--ui);font-weight:600;font-size:var(--t-title);font-style:normal;line-height:1.3;letter-spacing:-.01em;
 }
 h2 em,h3 em{font-style:italic;color:var(--clay)}
@@ -406,21 +406,7 @@ section{position:relative;padding-block:var(--section)}
 .host h3{margin-bottom:var(--s-2)}
 .host p{color:rgba(245,241,233,.88)}
 
-/* ---------- Pricing ---------- */
-.price-note{color:var(--clay);background:var(--paper);margin-bottom:var(--s-5)}
-.price-table{list-style:none;background:var(--paper);border-radius:var(--r-lg);overflow:hidden}
-.price-row a{display:grid;grid-template-columns:repeat(3,1fr);column-gap:var(--gap);align-items:center;padding:var(--s-5) var(--card-pad);border-top:1px solid var(--line);transition:background var(--fast)}
-.price-row:first-child a{border-top:none}
-.price-row a:hover{background:var(--panel)}
-.price-row .punit{color:var(--text-2);font-size:var(--t-small)}
-.price-row .pamt{justify-self:end;display:inline-flex;align-items:center;gap:var(--s-2);font-family:var(--mono);font-weight:400;font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;color:var(--clay);white-space:nowrap}
-.price-row .pamt .arrow{font-family:var(--ui);font-weight:500}
-.price-row a:hover .arrow{transform:translate(3px,-3px)}
-@media(max-width:640px){
-  .price-row a{grid-template-columns:1fr auto;row-gap:var(--s-1);padding:var(--s-4) var(--s-5)}
-  .price-row .punit{grid-column:1;grid-row:2}
-  .price-row .pamt{grid-column:2;grid-row:1/3}
-}
+/* ---------- FAQ (end of Memberships) ---------- */
 .faq details{border-top:1px solid var(--line-strong)}
 .faq details:last-child{border-bottom:1px solid var(--line-strong)}
 .faq summary{display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);min-height:44px;padding:var(--s-4) 0;list-style:none;cursor:pointer;font-weight:500}

@@ -518,8 +518,8 @@
   }
 
   // ---------- Section rail + progress line ----------
-  const NAMES = {manifesto: 'Manifesto', spaces: 'The floor', memberships: 'Memberships', studio: 'The Studio',
-                 community: 'Community', pricing: 'Pricing', about: 'About', visit: 'Visit'};
+  const NAMES = {manifesto: 'Manifesto', spaces: 'The floor', 'events-floor': 'Events', memberships: 'Memberships', studio: 'The Studio',
+                 community: 'Community', about: 'About', visit: 'Visit'};
   const goTo = el => window.__lenis ? window.__lenis.scrollTo(el, {offset: -72}) : el.scrollIntoView({behavior: reduced ? 'auto' : 'smooth'});
 
   if (STORY.rail && !reduced) {
