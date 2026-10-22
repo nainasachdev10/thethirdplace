@@ -23,17 +23,30 @@
     requestAnimationFrame(startHero);
   }
 
-  // Links to a section (e.g. /#visit) land on that section once the page has loaded;
-  // everything else starts at the top (set in the <head>).
+  // Every load starts at the top (see the <head>); make sure nothing moved us before the intro ends
   addEventListener('load', () => {
-    if (!location.hash) return;
-    let target = null;
-    try { target = document.querySelector(location.hash); } catch (_) {}
-    if (!target) return;
+    if (!scrollY) return;
     const root = document.documentElement;
-    root.style.scrollBehavior = 'auto';   // jump, don't animate, on page load
-    target.scrollIntoView();
+    root.style.scrollBehavior = 'auto';
+    scrollTo(0, 0);
     requestAnimationFrame(() => { root.style.scrollBehavior = ''; });
+  });
+
+  // In-page links scroll to their section without adding #section to the address,
+  // so a refresh never jumps back down the page
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const id = a.getAttribute('href');
+    if (id.length < 2) return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    if (a.classList.contains('sr-only')) {   // "Skip to content": move keyboard focus too
+      target.setAttribute('tabindex', '-1');
+      target.focus({preventScroll: true});
+    }
   });
 
   // Header: scrolled state + mobile action bar
@@ -64,6 +77,12 @@
   burger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   $$('a', navLinks).forEach(a => a.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  let resizeTimer;
+  addEventListener('resize', () => {
+    navLinks.classList.add('no-anim');
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => navLinks.classList.remove('no-anim'), 300);
+  });
 
   // Reveal on scroll
   const io = new IntersectionObserver(entries => {
@@ -170,7 +189,7 @@
     err.textContent = '';
     if (!name.value.trim()) return fail(name, 'Please add your name.');
     if (phone.value.replace(/\D/g, '').length < 10) return fail(phone, 'Please add a phone number we can reach you on.');
-    if (email.value.trim() && !/^\S+@\S+\.\S+$/.test(email.value.trim())) return fail(email, 'That email doesn\'t look quite right.');
+    if (email.value.trim() && !/^\S+@\S+\.\S+$/.test(email.value.trim())) return fail(email, 'That email doesn’t look quite right.');
 
     const data = new URLSearchParams({
       name: name.value.trim(),
@@ -183,7 +202,7 @@
     });
 
     if (!SHEET_ENDPOINT) {
-      err.textContent = 'This form isn\'t connected yet. Please call or WhatsApp us on +91 91851 51597.';
+      err.textContent = 'This form isn’t connected yet. Please call or WhatsApp us on +91 91851 51597.';
       return;
     }
 
@@ -199,7 +218,7 @@
       done.hidden = false;
       done.focus();
     } catch (_) {
-      err.textContent = 'Couldn\'t send just now. Check your connection and try again, or call us on +91 91851 51597.';
+      err.textContent = 'Couldn’t send just now. Check your connection and try again, or call us on +91 91851 51597.';
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Submit <span class="arrow">→</span>';

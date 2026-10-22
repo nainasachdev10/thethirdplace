@@ -20,10 +20,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;1,300&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=20261022q">
 <script>(function(c){c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)c.add('intro')}catch(e){}
-/* every load starts at the top (unless the link points to a section, e.g. #visit) */
-if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.documentElement.classList)</script>
+/* every load and refresh starts at the top: no restored scroll, and any #section is dropped from the address */
+if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search)})(document.documentElement.classList)</script>
 </head>
 <body>
 
@@ -94,7 +94,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
           <li><span class="dot"></span><span class="txt">Not office.</span></li>
           <li><span class="dot"></span><span class="txt">Yours.</span></li>
         </ul>
-        <p class="hero-sub reveal">Nashik's workspace, studio, and community under one roof. Somewhere to build your work, and to belong to the city building its future.</p>
+        <p class="hero-sub reveal">Nashik’s workspace, studio, and community under one roof. Somewhere to build your work, and to belong to the city building its future.</p>
         <div class="hero-cta reveal" data-d="1">
           <a href="#visit" class="btn btn-clay">Book a tour <span class="arrow">↗</span></a>
           <a href="#memberships" class="btn btn-ghost">Find your seat</a>
@@ -117,12 +117,12 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
     <div class="reveal idea-grid">
       <div>
         <p class="kicker">The idea</p>
-        <h2>There's a first place, a second place, and then there's <em>the one that makes a city feel alive.</em></h2>
+        <h2>There’s a first place, a second place, and then there’s <em>the one that makes a city feel alive.</em></h2>
       </div>
       <div>
-        <p>Sociologist Ray Oldenburg named it. <b>Home is your first place, work is your second,</b> and the third place is the ground in between, where you're neither host nor employee. You're just yourself, among others.</p>
-        <p>The Third Place is Nashik's answer: a single floor where a solo founder, a growing startup, a corporate team and a podcaster share the same coffee, the same energy, and the same address.</p>
-        <p class="pull">Come for a desk. Stay for the city you're building it in.</p>
+        <p>Sociologist Ray Oldenburg named it. <b>Home is your first place, work is your second,</b> and the third place is the ground in between, where you’re neither host nor employee. You’re just yourself, among others.</p>
+        <p>The Third Place is Nashik’s answer: a single floor where a solo founder, a growing startup, a corporate team and a podcaster share the same coffee, the same energy, and the same address.</p>
+        <p class="pull">Come for a desk. Stay for the city you’re building it in.</p>
       </div>
     </div>
   </div>
@@ -227,7 +227,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">01</span><span class="zt">Corporate spine</span><span class="zp"></span></button>
           <div class="zone-body"><div><p><span class="for">For teams of 2–20</span>Private cabins along a focused spine, built for heads-down work and enterprise-grade reliability. Lockable, furnished, brandable.</p></div></div></li>
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">02</span><span class="zt">Startup edges</span><span class="zp"></span></button>
-          <div class="zone-body"><div><p><span class="for">Hot &amp; dedicated desks</span>Open, social, flexible desks where Nashik's next companies take shape. Move around, meet people, work where the energy is.</p></div></div></li>
+          <div class="zone-body"><div><p><span class="for">Hot &amp; dedicated desks</span>Open, social, flexible desks where Nashik’s next companies take shape. Move around, meet people, work where the energy is.</p></div></div></li>
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">03</span><span class="zt">The Studio</span><span class="zp"></span></button>
           <div class="zone-body"><div><p><span class="for">Podcast &amp; content</span>At the very centre of the floor, with no windows by design, for clean, controlled sound. Camera-ready and open to the public.</p></div></div></li>
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">04</span><span class="zt">Creator zone</span><span class="zp"></span></button>
@@ -237,7 +237,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">06</span><span class="zt">Quiet pods</span><span class="zp"></span></button>
           <div class="zone-body"><div><p><span class="for">Calls &amp; deep work</span>For the calls, the deep work, and the moments you need the door shut.</p></div></div></li>
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">07</span><span class="zt">The balcony</span><span class="zp"></span></button>
-          <div class="zone-body"><div><p><span class="for">Step out &amp; breathe</span>Fresh air, a second coffee, and the conversations that don't happen at a desk.</p></div></div></li>
+          <div class="zone-body"><div><p><span class="for">Step out &amp; breathe</span>Fresh air, a second coffee, and the conversations that don’t happen at a desk.</p></div></div></li>
       </ul>
     </div>
   </div>
@@ -249,11 +249,11 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
     <div class="section-head split reveal">
       <p class="kicker">Memberships</p>
       <h2>Find <em>your</em> seat.</h2>
-      <p class="lede">From a single day on the floor to a private cabin for your whole team. Tell us how you work and we'll point the way.</p>
+      <p class="lede">From a single day on the floor to a private cabin for your whole team. Tell us how you work and we’ll point the way.</p>
     </div>
 
     <div class="finder reveal">
-      <span class="q">I'm…</span>
+      <span class="q">I’m…</span>
       <div class="chips" id="finder" role="group" aria-label="What describes you">
         <button class="chip" aria-pressed="false" data-fit="day">Just passing through</button>
         <button class="chip" aria-pressed="false" data-fit="hot">Freelance &amp; flexible</button>
@@ -302,7 +302,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
     </div>
 
     <div class="aside-row reveal">
-      <h3>What's on the floor</h3>
+      <h3>What’s on the floor</h3>
       <ul class="amen-grid">
         <li>High-speed business wifi</li>
         <li>Unlimited coffee &amp; pantry</li>
@@ -324,8 +324,8 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
   <div class="wrap">
     <div class="section-head split reveal">
       <p class="kicker">Podcast &amp; content studio</p>
-      <h2>Nashik's voice, <em>on the record.</em></h2>
-      <p class="lede">The Studio is why The Third Place isn't just another coworking space. Acoustically treated, camera-ready, and open to members and the public. It's where Nashik's founders, brands and creators record the work that gets them heard.</p>
+      <h2>Nashik’s voice, <em>on the record.</em></h2>
+      <p class="lede">The Studio is why The Third Place isn’t just another coworking space. Acoustically treated, camera-ready, and open to members and the public. It’s where Nashik’s founders, brands and creators record the work that gets them heard.</p>
     </div>
 
     <div class="reveal studio-cols">
@@ -392,11 +392,11 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
         <p class="muted">Six ways the floor fills up. Scroll the deck.</p>
       </div>
     <ul class="events" id="events">
-      <li class="event"><span class="when"><span>01</span><span>Mornings</span></span><h4>Founder breakfasts</h4><p>The people building Nashik's companies, over coffee.</p></li>
-      <li class="event"><span class="when"><span>02</span><span>Monthly</span></span><h4>Demo nights</h4><p>Startups and creators show what they've made.</p></li>
+      <li class="event"><span class="when"><span>01</span><span>Mornings</span></span><h4>Founder breakfasts</h4><p>The people building Nashik’s companies, over coffee.</p></li>
+      <li class="event"><span class="when"><span>02</span><span>Monthly</span></span><h4>Demo nights</h4><p>Startups and creators show what they’ve made.</p></li>
       <li class="event"><span class="when"><span>03</span><span>Hands-on</span></span><h4>Skill workshops</h4><p>Sessions on the things that move work forward.</p></li>
-      <li class="event"><span class="when"><span>04</span><span>Creators</span></span><h4>Creator meetups</h4><p>For Nashik's podcasters, editors, and storytellers.</p></li>
-      <li class="event"><span class="when"><span>05</span><span>Fridays</span></span><h4>Wine-down Fridays</h4><p>A nod to the city we're in. The week, wound down.</p></li>
+      <li class="event"><span class="when"><span>04</span><span>Creators</span></span><h4>Creator meetups</h4><p>For Nashik’s podcasters, editors, and storytellers.</p></li>
+      <li class="event"><span class="when"><span>05</span><span>Fridays</span></span><h4>Wine-down Fridays</h4><p>A nod to the city we’re in. The week, wound down.</p></li>
       <li class="event"><span class="when"><span>06</span><span>Midday</span></span><h4>Community lunches</h4><p>The easiest way to meet the floor.</p></li>
     </ul>
     </div>
@@ -419,7 +419,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
     <div class="section-head split reveal">
       <p class="kicker">Pricing</p>
       <h2>Simple plans. <em>Room to grow.</em></h2>
-      <p class="lede">Flexible terms that move with you. Upgrade, downgrade, or add a cabin as your team changes. Tap any plan to ask for today's rate.</p>
+      <p class="lede">Flexible terms that move with you. Upgrade, downgrade, or add a cabin as your team changes. Tap any plan to ask for today’s rate.</p>
     </div>
 
     <div class="reveal"><span class="price-note pill">Introductory rates · just ask</span></div>
@@ -436,10 +436,10 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
     <div class="aside-row faq reveal">
       <h3>Good questions</h3>
       <div>
-        <details><summary>Is there a lock-in?</summary><p>Flexible terms. Upgrade, downgrade, or move on as your work changes. We'll confirm exact terms when you enquire.</p></details>
-        <details><summary>Do you offer team or bulk rates?</summary><p>Yes. For 5+ seats we'll put together a plan for your team.</p></details>
+        <details><summary>Is there a lock-in?</summary><p>Flexible terms. Upgrade, downgrade, or move on as your work changes. We’ll confirm exact terms when you enquire.</p></details>
+        <details><summary>Do you offer team or bulk rates?</summary><p>Yes. For 5+ seats we’ll put together a plan for your team.</p></details>
         <details><summary>Can non-members use the Studio and meeting rooms?</summary><p>Yes, at standard hourly rates. Members get preferred rates and priority slots.</p></details>
-        <details><summary>What about GST?</summary><p>18% GST applies to coworking services in India. We'll always tell you clearly whether a quoted price includes it.</p></details>
+        <details><summary>What about GST?</summary><p>18% GST applies to coworking services in India. We’ll always tell you clearly whether a quoted price includes it.</p></details>
         <details><summary>Can I visit before I decide?</summary><p>Please do. Book a tour, or pick up a Day Pass and spend a day on the floor.</p></details>
       </div>
     </div>
@@ -456,7 +456,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
 
     <div class="reveal about-story">
       <p>We kept noticing the same thing: Nashik was full of talented people working alone. Founders at home, freelancers in cafés, teams in offices that closed the door on the city around them.</p>
-      <p>There was a first place and a second place, but no third. So we built one: a single floor where Nashik's professionals, founders, and creators could work, meet, record, and belong.</p>
+      <p>There was a first place and a second place, but no third. So we built one: a single floor where Nashik’s professionals, founders, and creators could work, meet, record, and belong.</p>
     </div>
 
     <ul class="reveal believe">
@@ -473,7 +473,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
       </div>
       <div>
         <h3>Digital <em>Nashik</em></h3>
-        <p>Nashik is known for its vineyards. We think it's ready to be known for what it builds. The Third Place is a small piece of infrastructure for a bigger idea: a Nashik that keeps its talent, backs its founders, and puts itself on India's digital map.</p>
+        <p>Nashik is known for its vineyards. We think it’s ready to be known for what it builds. The Third Place is a small piece of infrastructure for a bigger idea: a Nashik that keeps its talent, backs its founders, and puts itself on India’s digital map.</p>
       </div>
     </div>
   </div>
@@ -490,7 +490,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
     <div class="section-head split reveal">
       <p class="kicker">Visit</p>
       <h2>Come find <em>your third place.</em></h2>
-      <p class="lede">Drop in for a tour or a coffee. We'd love to show you around.</p>
+      <p class="lede">Drop in for a tour or a coffee. We’d love to show you around.</p>
     </div>
 
     <div class="reveal visit-grid">
@@ -526,8 +526,8 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
         <form id="enquiry" novalidate>
           <div class="form-body" id="formBody">
             <h3>Book a tour <em>or enquire</em></h3>
-            <p class="sub">Leave your details and we'll get back to you.</p>
-            <div class="field-row">
+            <p class="sub">Leave your details and we’ll get back to you.</p>
+            <div class="field-row two">
               <div class="field">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
@@ -548,7 +548,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
               </div>
             </div>
             <div class="field">
-              <span class="lbl" id="intLbl">I'm interested in</span>
+              <span class="lbl" id="intLbl">I’m interested in</span>
               <div class="chips" role="radiogroup" aria-labelledby="intLbl" id="interest">
               <button type="button" class="chip" role="radio" aria-checked="true">Just visiting</button>
               <button type="button" class="chip" role="radio" aria-checked="false">Day pass</button>
@@ -571,7 +571,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
           <div class="form-done" id="formDone" tabindex="-1" hidden>
             <span class="done-dot" aria-hidden="true"></span>
             <h3>Thank you, <em id="doneName">friend</em>.</h3>
-            <p>We've got your details and will be in touch soon.</p>
+            <p>We’ve got your details and will be in touch soon.</p>
             <button type="button" class="btn btn-line-paper" id="again">Send another enquiry</button>
           </div>
         </form>
@@ -591,7 +591,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
           <span class="wm">The Third Place</span>
           <span class="tl">NOT HOME. NOT OFFICE. YOURS.</span>
         </div>
-        <p>Nashik's workspace, studio, and community.</p>
+        <p>Nashik’s workspace, studio, and community.</p>
         <div class="socials">
           <a href="https://www.instagram.com/_the3rdplace_/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
           <a href="#" data-wa="Hi! I'd like to know more about The Third Place." aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
@@ -648,7 +648,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual'})(document.
   <a href="#visit" class="primary">Book a tour</a>
 </div>
 
-<script src="js/main.js" defer></script>
-<script src="js/motion.js" defer></script>
+<script src="js/main.js?v=20261022q" defer></script>
+<script src="js/motion.js?v=20261022q" defer></script>
 </body>
 </html>

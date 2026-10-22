@@ -178,6 +178,7 @@
   const panel = mf && $('.mf-panel', mf);
   const mfWords = mf ? $$('.mf-words > span', mf) : [];
   const cards = mf ? $$('.mf-card', mf) : [];
+  const mfCenter = mf && $('.mf-center', mf);
   const counters = mf ? $$('.mf-stats b[data-count]', mf) : [];
   let counted = false;
 
@@ -229,13 +230,28 @@
     const fly = easeOut(clamp((p - .08) / .62));
     const drift = clamp((p - .7) / .3);
     const narrow = vw < 700;
-    const headerH = 72, edge = 16;
-    cards.forEach(c => {
-      const hw = c.offsetWidth / 2 + edge, hh = c.offsetHeight / 2 + edge;
-      const tx = +c.dataset.x * vw * (narrow ? .9 : 1);
-      const ty = +c.dataset.y * vh * (narrow ? .95 : 1);
+    const headerH = 72, edge = 16, bottomBar = narrow ? 76 : 0;   // phones: keep clear of the Call/WhatsApp bar
+    // Phones: three cards above the centre and three below, measured from the real word + numbers,
+    // in the order: top-left, top-right, bottom-left, bottom-right, top-middle, bottom-middle
+    const cr = narrow && mfCenter ? mfCenter.getBoundingClientRect() : null;
+    const slots = [[-1, -2], [1, -2], [-1, 2], [1, 2], [0, -1], [0, 1]];
+    cards.forEach((c, i) => {
+      const w2 = c.offsetWidth / 2, h2 = c.offsetHeight / 2;
+      const hw = w2 + edge, hh = h2 + edge;
+      let tx, ty;
+      if (cr) {
+        const [side, row] = slots[i];
+        const gap = 12;
+        const innerTop = cr.top - vh / 2 - gap - h2, innerBottom = cr.bottom - vh / 2 + gap + h2;
+        const step = 2 * h2 + gap;
+        tx = side * (vw / 2 - w2 - 12);
+        ty = row === -1 ? innerTop : row === -2 ? innerTop - step : row === 1 ? innerBottom : innerBottom + step;
+      } else {
+        tx = +c.dataset.x * vw;
+        ty = +c.dataset.y * vh;
+      }
       const k = fly + drift * .06;
-      const maxX = vw / 2 - hw, minY = -(vh / 2 - hh - headerH), maxY = vh / 2 - hh;
+      const maxX = vw / 2 - hw, minY = -(vh / 2 - hh - headerH), maxY = vh / 2 - hh - bottomBar;
       const dx = clamp(tx * k, -maxX, maxX), dy = clamp(ty * k, minY, maxY);
       c.style.transform = `translate(-50%,-50%) translate(${dx}px,${dy}px) rotate(${+c.dataset.r * fly}deg) scale(${.4 + .6 * fly})`;
       c.style.opacity = fly;

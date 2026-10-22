@@ -36,6 +36,11 @@ Then open http://localhost:8000.
 - **Phone / WhatsApp number:** `WA_NUMBER` at the top of `js/main.js`, plus the `tel:` links and the number shown in `index.html`.
 - **Instagram:** search `index.html` for `_the3rdplace_`.
 
+## Updating the live site
+
+`index.html` loads `css/styles.css?v=…`, `js/main.js?v=…` and `js/motion.js?v=…` (and `404.html` loads the CSS the same way).
+When you change a CSS or JS file, bump that `v=` number (e.g. to today's date) so visitors' browsers fetch the new file instead of a cached copy.
+
 ## Enquiry form → Google Sheet
 
 The form posts to a Google Apps Script web app, which adds a row to the enquiries sheet.
