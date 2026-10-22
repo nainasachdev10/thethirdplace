@@ -23,6 +23,19 @@
     requestAnimationFrame(startHero);
   }
 
+  // Links to a section (e.g. /#visit) land on that section once the page has loaded;
+  // everything else starts at the top (set in the <head>).
+  addEventListener('load', () => {
+    if (!location.hash) return;
+    let target = null;
+    try { target = document.querySelector(location.hash); } catch (_) {}
+    if (!target) return;
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';   // jump, don't animate, on page load
+    target.scrollIntoView();
+    requestAnimationFrame(() => { root.style.scrollBehavior = ''; });
+  });
+
   // Header: scrolled state + mobile action bar
   const header = $('#top'), bar = $('#actionbar'), floatCta = $('#floatCta');
   const hero = $('#home'), visit = $('#visit');
