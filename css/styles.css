@@ -86,6 +86,11 @@ img,svg{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:4px}
 [hidden]{display:none!important}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* "Skip to content" appears when a keyboard user tabs to it */
+a.sr-only:focus{
+  position:fixed;left:var(--s-4);top:var(--s-4);z-index:3000;width:auto;height:auto;clip:auto;overflow:visible;
+  padding:var(--s-3) var(--s-5);border-radius:var(--r-pill);background:var(--ink);color:var(--paper);font-weight:600;
+}
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
 .muted{color:var(--text-2)}
 @media(max-width:520px){.hide-sm{display:none}}
@@ -673,10 +678,11 @@ form .sub{color:var(--text-2-ink)}
 .mf-stats .label{color:var(--text-2-ink)}
 /* Phones: all six cards, three above and three below the centre (positions set in motion.js) */
 @media(max-width:699px){
+  .manifesto{height:250vh}   /* same animation, less scrolling on phones */
   /* a third of the screen (minus margins): side and middle cards never collide, even on short phones */
   .mf-card{width:min(136px,calc((100vw - 40px) / 3));padding:var(--s-3);gap:var(--s-1)}
   .mf-card::before{width:8px;height:8px;margin-bottom:var(--s-1)}
-  .mf-card .label{font-size:11px;letter-spacing:.12em}
+  .mf-card .label{font-size:var(--t-label);letter-spacing:.12em}
   .mf-card b{font-size:var(--t-small);line-height:1.3}
 }
 
