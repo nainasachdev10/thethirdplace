@@ -14,27 +14,17 @@
 
   $('#year').textContent = new Date().getFullYear();
 
-  // Hero entrance
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-
-  // Open / closed status (Nashik time, Mon–Sat 9–21)
-  (() => {
-    const el = $('#status');
-    const parts = new Intl.DateTimeFormat('en-GB', {timeZone:'Asia/Kolkata', weekday:'short', hour:'numeric', hour12:false}).formatToParts(new Date());
-    const day = parts.find(p => p.type === 'weekday').value;
-    const hour = parseInt(parts.find(p => p.type === 'hour').value, 10);
-    const openDay = day !== 'Sun';
-    const isOpen = openDay && hour >= 9 && hour < 21;
-    let label;
-    if (isOpen) label = 'Open now · until 9 PM';
-    else if (openDay && hour < 9) label = 'Closed · opens 9 AM';
-    else label = (day === 'Sat' || day === 'Sun') ? 'Closed · opens Mon 9 AM' : 'Closed · opens 9 AM';
-    el.classList.toggle('open', isOpen);
-    el.lastElementChild.textContent = label;
-  })();
+  // Hero entrance (after the intro, if it's playing; failsafe in case motion.js doesn't load)
+  const startHero = () => document.body.classList.add('loaded');
+  if (document.documentElement.classList.contains('intro')) {
+    addEventListener('ttp:intro-done', startHero, {once: true});
+    setTimeout(startHero, 6000);
+  } else {
+    requestAnimationFrame(startHero);
+  }
 
   // Header: scrolled state + mobile action bar
-  const header = $('#top'), bar = $('#actionbar');
+  const header = $('#top'), bar = $('#actionbar'), floatCta = $('#floatCta');
   const hero = $('#home'), visit = $('#visit');
   const onScroll = () => {
     const y = scrollY;
@@ -43,6 +33,7 @@
     const r = visit.getBoundingClientRect();
     const reachedVisit = r.top < innerHeight; // contact section and footer
     bar.classList.toggle('show', pastHero && !reachedVisit);
+    floatCta.classList.toggle('show', pastHero && !reachedVisit);
   };
   onScroll();
   addEventListener('scroll', onScroll, {passive:true});

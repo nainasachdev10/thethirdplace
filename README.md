@@ -12,6 +12,7 @@ A static site: plain HTML, CSS and JavaScript with no build step. It runs on any
 ├── 404.html            # "page not found" page
 ├── css/styles.css      # all styles (design tokens at the top)
 ├── js/main.js          # menu, floor plan, seat finder, enquiry form
+├── js/motion.js        # intro, cursor, word reveals, scroll animations (off for reduced motion)
 ├── assets/             # favicons + social share image
 ├── apps-script/Code.gs # Google Apps Script that writes enquiries to the Google Sheet
 ├── robots.txt

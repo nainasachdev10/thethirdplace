@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;1,300&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script>(function(c){c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)c.add('intro')}catch(e){}})(document.documentElement.classList)</script>
 </head>
 <body>
 
@@ -35,6 +36,15 @@
 </svg>
 
 <a class="sr-only" href="#main">Skip to content</a>
+
+<!-- Intro: plays once per visit -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-dots"><i></i><i></i><i></i></div>
+  <div class="loader-words"><span>Not home.</span><span>Not office.</span><span><em>Yours.</em></span></div>
+  <div class="loader-foot"><span class="label">The Third Place · Nashik</span><span class="label loader-count" id="loaderCount">000</span></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"><span class="cursor-label"></span></span></div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="top">
@@ -74,8 +84,7 @@
     <div class="hero-grid">
       <div>
         <div class="hero-top">
-          <span class="kicker">Coworking · Studio · Community<span class="hide-sm">&nbsp;- Nashik</span></span>
-          <span class="status pill" id="status"><i></i><span>Mon–Sat · 9 AM – 9 PM</span></span>
+          <span class="kicker">Coworking · Studio · Community<span class="hide-sm"> · Nashik</span></span>
         </div>
         <h1 class="sr-only">The Third Place: Not home. Not office. Yours.</h1>
         <ul class="h-lines" aria-hidden="true">
@@ -90,21 +99,53 @@
         </div>
       </div>
     </div>
+    <a href="#visit" class="badge" id="badge" aria-label="Book a tour" data-cursor="Visit">
+      <svg viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="badgePath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+        <g class="badge-spin"><text><textPath href="#badgePath" textLength="500" lengthAdjust="spacing">NOT HOME · NOT OFFICE · YOURS · BOOK A TOUR ·</textPath></text></g>
+      </svg>
+      <svg class="mk" viewBox="200 435 680 210" aria-hidden="true"><circle class="o" cx="280.6" cy="540" r="66.6"/><circle class="o" cx="515.5" cy="540" r="66.6"/><circle class="s" cx="774.9" cy="540" r="97.9"/></svg>
+    </a>
   </div>
 </section>
 
 <!-- ============ THE IDEA ============ -->
 <section class="idea">
   <div class="wrap">
-    <div class="idea-grid">
-      <div class="reveal">
+    <div class="reveal idea-grid">
+      <div>
         <p class="kicker">The idea</p>
         <h2>There's a first place, a second place, and then there's <em>the one that makes a city feel alive.</em></h2>
       </div>
-      <div class="reveal" data-d="1">
+      <div>
         <p>Sociologist Ray Oldenburg named it. <b>Home is your first place, work is your second,</b> and the third place is the ground in between, where you're neither host nor employee. You're just yourself, among others.</p>
         <p>The Third Place is Nashik's answer: a single floor where a solo founder, a growing startup, a corporate team and a podcaster share the same coffee, the same energy, and the same address.</p>
         <p class="pull">Come for a desk. Stay for the city you're building it in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO (scroll-driven) ============ -->
+<section class="manifesto" id="manifesto" aria-label="What happens at The Third Place">
+  <div class="mf-sticky">
+    <div class="mf-panel on-ink">
+      <div class="mf-center">
+        <p class="label mf-kicker">One floor. Every day.</p>
+        <h2 class="mf-words" aria-label="Work. Meet. Record. Belong."><span>Work.</span><span>Meet.</span><span>Record.</span><span><em>Belong.</em></span></h2>
+        <ul class="mf-stats">
+          <li><b data-count="1">1</b><span class="label">Floor</span></li>
+          <li><b data-count="7">7</b><span class="label">Zones</span></li>
+          <li><b data-count="24" data-suffix="/7">24/7</b><span class="label">Member access</span></li>
+        </ul>
+      </div>
+      <div class="mf-cards" aria-hidden="true">
+        <div class="mf-card" data-x="-.32" data-y="-.3" data-r="-8"><span class="label">Hot desks</span><b>Any seat, any day</b></div>
+        <div class="mf-card clay" data-x=".32" data-y="-.3" data-r="6"><span class="label">The Studio</span><b>Podcasts &amp; video</b></div>
+        <div class="mf-card" data-x="-.3" data-y=".3" data-r="5"><span class="label">Private cabins</span><b>Teams of 2–20</b></div>
+        <div class="mf-card clay" data-x=".3" data-y=".3" data-r="-7"><span class="label">Fridays</span><b>Wine-down</b></div>
+        <div class="mf-card" data-x="-.38" data-y=".02" data-r="3"><span class="label">Monthly</span><b>Demo nights</b></div>
+        <div class="mf-card" data-x=".38" data-y="0" data-r="-4"><span class="label">The balcony</span><b>Step out &amp; breathe</b></div>
       </div>
     </div>
   </div>
@@ -119,8 +160,8 @@
       <p class="lede">A full fourth floor at Canada Corner, designed as one continuous flow. Tap a zone to walk the floor.</p>
     </div>
 
-    <div class="floor">
-      <div class="plan-wrap reveal">
+    <div class="floor reveal">
+      <div class="plan-wrap">
         <svg class="plan" id="plan" viewBox="0 0 640 420" role="img" aria-label="Floor plan of The Third Place">
           <defs>
             <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -217,52 +258,44 @@
         <button class="chip" aria-pressed="false" data-fit="ded">Here every day</button>
         <button class="chip" aria-pressed="false" data-fit="cab">Bringing a team</button>
         <button class="chip" aria-pressed="false" data-fit="meet">Need a room for a few hours</button>
-        <button class="chip" aria-pressed="false" data-fit="virt">Remote, need an address</button>
       </div>
     </div>
 
-    <div class="m-grid" id="mgrid">
-      <article class="m-card reveal" data-fit="day">
+    <div class="reveal m-grid" id="mgrid">
+      <article class="m-card" data-fit="day">
         <span class="pick"></span><span class="tag label">Visitors &amp; drop-ins</span>
         <h3>Day Pass</h3>
         <p class="pitch">A full day on the floor: desk, wifi, coffee, and every common area.</p>
         <p class="incl">The easiest way to see if this is your place.</p>
         <a href="#visit" class="go" data-interest="Day pass">Enquire <span class="arrow">→</span></a>
       </article>
-      <article class="m-card reveal" data-d="1" data-fit="hot">
+      <article class="m-card" data-fit="hot">
         <span class="pick"></span><span class="tag label">Freelancers &amp; flexible teams</span>
         <h3>Hot Desk</h3>
         <p class="pitch">Any open seat, any day. Work where the energy is.</p>
         <p class="incl">High-speed wifi, unlimited coffee, community access, and all common areas.</p>
         <a href="#visit" class="go" data-interest="Hot desk">Enquire <span class="arrow">→</span></a>
       </article>
-      <article class="m-card reveal" data-d="2" data-fit="ded">
+      <article class="m-card" data-fit="ded">
         <span class="pick"></span><span class="tag label">Regulars</span>
         <h3>Dedicated Desk</h3>
         <p class="pitch">Your own desk, always ready, with storage that stays yours.</p>
         <p class="incl">Everything in Hot Desk, plus a fixed desk, lockable storage, and 24/7 access.</p>
         <a href="#visit" class="go" data-interest="Dedicated desk">Enquire <span class="arrow">→</span></a>
       </article>
-      <article class="m-card reveal" data-fit="cab">
+      <article class="m-card" data-fit="cab">
         <span class="pick"></span><span class="tag label">Teams of 2–20</span>
         <h3>Private Cabin</h3>
         <p class="pitch">A lockable, brandable office inside a floor that keeps you connected.</p>
         <p class="incl">A furnished cabin, meeting-room credits, 24/7 access, and optional branding.</p>
         <a href="#visit" class="go" data-interest="Private cabin">Enquire <span class="arrow">→</span></a>
       </article>
-      <article class="m-card reveal" data-d="1" data-fit="meet">
+      <article class="m-card" data-fit="meet">
         <span class="pick"></span><span class="tag label">By the hour</span>
         <h3>Meeting Rooms</h3>
         <p class="pitch">Fully equipped for calls, pitches, and workshops.</p>
         <p class="incl">Screens, video conferencing, whiteboards. Free credits for members, hourly for everyone else.</p>
         <a href="#visit" class="go" data-interest="Meeting room">Enquire <span class="arrow">→</span></a>
-      </article>
-      <article class="m-card reveal" data-d="2" data-fit="virt">
-        <span class="pick"></span><span class="tag label">Online &amp; out-of-town</span>
-        <h3>Virtual Office</h3>
-        <p class="pitch">A Nashik business address, without the desk.</p>
-        <p class="incl">GST- and registration-ready, with mail handling and meeting rooms when you need them.</p>
-        <a href="#visit" class="go" data-interest="Virtual office">Enquire <span class="arrow">→</span></a>
       </article>
     </div>
 
@@ -293,8 +326,8 @@
       <p class="lede">The Studio is why The Third Place isn't just another coworking space. Acoustically treated, camera-ready, and open to members and the public. It's where Nashik's founders, brands and creators record the work that gets them heard.</p>
     </div>
 
-    <div class="studio-cols">
-      <div class="reveal">
+    <div class="reveal studio-cols">
+      <div>
         <h3>What you can <em>make</em> here</h3>
         <ul class="make-list">
           <li>Podcasts, audio and video</li>
@@ -305,7 +338,7 @@
           <li>Online courses and webinars</li>
         </ul>
       </div>
-      <div class="reveal" data-d="1">
+      <div>
         <h3>The setup</h3>
         <p class="body">Purpose-built at the centre of the floor, with no windows by design, for clean, controlled sound. Professional microphones, cameras, and lighting, with a layout ready for a solo recording or a full panel.</p>
         <p class="body">Members get preferred rates and priority slots. Not a member? Book by the hour or half-day.</p>
@@ -351,7 +384,12 @@
       </div>
     </div>
 
-    <ul class="events reveal" id="events">
+    <div class="calendar reveal">
+      <div class="calendar-aside">
+        <h3>On the <em>calendar</em></h3>
+        <p class="muted">Six ways the floor fills up. Scroll the deck.</p>
+      </div>
+    <ul class="events" id="events">
       <li class="event"><span class="when"><span>01</span><span>Mornings</span></span><h4>Founder breakfasts</h4><p>The people building Nashik's companies, over coffee.</p></li>
       <li class="event"><span class="when"><span>02</span><span>Monthly</span></span><h4>Demo nights</h4><p>Startups and creators show what they've made.</p></li>
       <li class="event"><span class="when"><span>03</span><span>Hands-on</span></span><h4>Skill workshops</h4><p>Sessions on the things that move work forward.</p></li>
@@ -359,6 +397,7 @@
       <li class="event"><span class="when"><span>05</span><span>Fridays</span></span><h4>Wine-down Fridays</h4><p>A nod to the city we're in. The week, wound down.</p></li>
       <li class="event"><span class="when"><span>06</span><span>Midday</span></span><h4>Community lunches</h4><p>The easiest way to meet the floor.</p></li>
     </ul>
+    </div>
 
     <div class="host reveal">
       <div>
@@ -388,7 +427,6 @@
       <li class="price-row"><a href="#visit" data-interest="Hot desk"><span class="pname">Hot Desk</span><span class="punit">Any open seat, monthly</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
       <li class="price-row"><a href="#visit" data-interest="Dedicated desk"><span class="pname">Dedicated Desk</span><span class="punit">Your own desk, monthly</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
       <li class="price-row"><a href="#visit" data-interest="Private cabin"><span class="pname">Private Cabin</span><span class="punit">Per seat, per month</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
-      <li class="price-row"><a href="#visit" data-interest="Virtual office"><span class="pname">Virtual Office</span><span class="punit">Address + mail handling</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
       <li class="price-row"><a href="#visit" data-interest="The Studio"><span class="pname">The Studio</span><span class="punit">Per hour · member rate available</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
       <li class="price-row"><a href="#visit" data-interest="Meeting room"><span class="pname">Meeting Rooms</span><span class="punit">Per hour · free credits for members</span><span class="pamt">Ask <span class="arrow">↗</span></span></a></li>
     </ul>
@@ -414,24 +452,24 @@
       <h2>Every city needs <em>a third place.</em></h2>
     </div>
 
-    <div class="about-story">
-      <p class="reveal">We kept noticing the same thing: Nashik was full of talented people working alone. Founders at home, freelancers in cafés, teams in offices that closed the door on the city around them.</p>
-      <p class="reveal" data-d="1">There was a first place and a second place, but no third. So we built one: a single floor where Nashik's professionals, founders, and creators could work, meet, record, and belong.</p>
+    <div class="reveal about-story">
+      <p>We kept noticing the same thing: Nashik was full of talented people working alone. Founders at home, freelancers in cafés, teams in offices that closed the door on the city around them.</p>
+      <p>There was a first place and a second place, but no third. So we built one: a single floor where Nashik's professionals, founders, and creators could work, meet, record, and belong.</p>
     </div>
 
-    <ul class="believe">
-      <li class="reveal"><b>Community over square footage</b><span>We rent desks, but we build a place.</span></li>
-      <li class="reveal" data-d="1"><b>Made in Nashik, for Nashik</b><span>Local by conviction, not by default.</span></li>
-      <li class="reveal" data-d="2"><b>Give the city a voice</b><span>Which is why we built a studio, not just a boardroom.</span></li>
-      <li class="reveal" data-d="3"><b>Room for everyone</b><span>The intern and the CEO share the same coffee machine.</span></li>
+    <ul class="reveal believe">
+      <li><b>Community over square footage</b><span>We rent desks, but we build a place.</span></li>
+      <li><b>Made in Nashik, for Nashik</b><span>Local by conviction, not by default.</span></li>
+      <li><b>Give the city a voice</b><span>Which is why we built a studio, not just a boardroom.</span></li>
+      <li><b>Room for everyone</b><span>The intern and the CEO share the same coffee machine.</span></li>
     </ul>
 
-    <div class="about-two">
-      <div class="reveal">
+    <div class="reveal about-two">
+      <div>
         <h3>The space</h3>
         <p>A full fourth floor at Canada Corner, designed as one continuous flow: private cabins along a focused corporate spine, open startup edges, a studio at the core, and a balcony to step out and breathe. Built to feel less like an office and more like the best part of the city.</p>
       </div>
-      <div class="reveal" data-d="1">
+      <div>
         <h3>Digital <em>Nashik</em></h3>
         <p>Nashik is known for its vineyards. We think it's ready to be known for what it builds. The Third Place is a small piece of infrastructure for a bigger idea: a Nashik that keeps its talent, backs its founders, and puts itself on India's digital map.</p>
       </div>
@@ -439,8 +477,13 @@
   </div>
 </section>
 
+</main>
+
+<!-- Visit pins in place while the footer slides up over it -->
+<div class="finale">
+
 <!-- ============ VISIT / CONTACT ============ -->
-<section class="on-ink" id="visit">
+<section class="on-ink" id="visit" aria-label="Visit">
   <div class="wrap">
     <div class="section-head split reveal">
       <p class="kicker">Visit</p>
@@ -448,8 +491,8 @@
       <p class="lede">Drop in for a tour or a coffee. We'd love to show you around.</p>
     </div>
 
-    <div class="visit-grid">
-      <div class="contact-cards reveal">
+    <div class="reveal visit-grid">
+      <div class="contact-cards">
         <a class="ccard" href="#" data-wa="Hi! I'd like to book a tour of The Third Place.">
           <span class="ic"><svg><use href="#i-wa"/></svg></span>
           <span><span class="lb">WhatsApp</span><span class="vl">Send us a message</span></span>
@@ -465,7 +508,7 @@
           <span><span class="lb">Instagram</span><span class="vl">@_the3rdplace_</span></span>
           <span class="arrow">↗</span>
         </a>
-        <a class="ccard" href="https://www.google.com/maps/search/?api=1&amp;query=Canada+Corner+Nashik" target="_blank" rel="noopener">
+        <a class="ccard" href="https://share.google/c9Nrg9wRtRuz42o1T" target="_blank" rel="noopener">
           <span class="ic"><svg><use href="#i-pin"/></svg></span>
           <span><span class="lb">Address</span><span class="vl">4th floor, Canada Corner,<br>Nashik, Maharashtra</span></span>
           <span class="arrow">↗</span>
@@ -477,7 +520,7 @@
         </div>
       </div>
 
-      <div class="reveal" data-d="1">
+      <div>
         <form id="enquiry" novalidate>
           <div class="form-body" id="formBody">
             <h3>Book a tour <em>or enquire</em></h3>
@@ -511,7 +554,6 @@
               <button type="button" class="chip" role="radio" aria-checked="false">Dedicated desk</button>
               <button type="button" class="chip" role="radio" aria-checked="false">Private cabin</button>
               <button type="button" class="chip" role="radio" aria-checked="false">Meeting room</button>
-              <button type="button" class="chip" role="radio" aria-checked="false">Virtual office</button>
               <button type="button" class="chip" role="radio" aria-checked="false">The Studio</button>
               <button type="button" class="chip" role="radio" aria-checked="false">Hosting an event</button>
               </div>
@@ -536,11 +578,10 @@
   </div>
 </section>
 
-</main>
-
 <!-- ============ FOOTER ============ -->
-<footer class="on-ink">
+<footer class="foot">
   <div class="wrap">
+    <p class="foot-big split" aria-hidden="true">Not home. Not office. <em>Yours.</em></p>
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="stacked">
@@ -562,7 +603,6 @@
           <li><a href="#memberships">Hot Desk</a></li>
           <li><a href="#memberships">Dedicated Desk</a></li>
           <li><a href="#memberships">Private Cabin</a></li>
-          <li><a href="#memberships">Virtual Office</a></li>
           <li><a href="#studio">The Studio</a></li>
         </ul>
       </div>
@@ -581,7 +621,7 @@
           <li>4th floor, Canada Corner, Nashik</li>
           <li>Mon–Sat, 9 AM – 9 PM</li>
           <li><a href="tel:+919185151597">+91 91851 51597</a></li>
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Canada+Corner+Nashik" target="_blank" rel="noopener">Get directions ↗</a></li>
+          <li><a href="https://share.google/c9Nrg9wRtRuz42o1T" target="_blank" rel="noopener">Get directions ↗</a></li>
         </ul>
       </div>
     </div>
@@ -591,6 +631,13 @@
     </div>
   </div>
 </footer>
+</div>
+
+<!-- Desktop floating CTA -->
+<div class="float-cta" id="floatCta">
+  <a href="#visit" class="btn btn-clay">Book a tour <span class="arrow">↗</span></a>
+  <a href="#" class="float-wa" data-wa="Hi! I'd like to know more about The Third Place." aria-label="WhatsApp us"><svg><use href="#i-wa"/></svg></a>
+</div>
 
 <!-- Mobile action bar -->
 <div class="actionbar" id="actionbar">
@@ -600,5 +647,6 @@
 </div>
 
 <script src="js/main.js" defer></script>
+<script src="js/motion.js" defer></script>
 </body>
 </html>
