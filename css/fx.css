@@ -1,0 +1,53 @@
+/* ============================================================
+   THE THIRD PLACE: optional effects (fx)
+   Every rule here only applies when its switch in js/fx.js is on.
+   Each switch adds a class to <html>:
+     fx-deal     membership cards are dealt in like a hand
+     fx-shuffle  the seat finder shuffles the deck
+     fx-read     "The idea" text turns to Ink as you read
+     fx-tour     a clay dot tours the floor plan
+     fx-flow     soft colour transitions between sections
+     (smooth scrolling uses Lenis's own .lenis classes below)
+   Turn a switch off in js/fx.js and its styles stop applying.
+   ============================================================ */
+
+/* ---------- Dealt cards: the cards animate themselves, so the grid itself doesn't fade/slide ---------- */
+html.fx-deal .m-grid.reveal{opacity:1;transform:none}
+html.fx-deal .m-grid:not(.dealt) .m-card{opacity:0}
+
+/* ---------- Shuffle: keep the card being moved on top ---------- */
+html.fx-shuffle .m-card.shuffling{z-index:2}
+
+/* ---------- Read-along ---------- */
+html.fx-read .idea-grid .rw{color:var(--stone);opacity:.55;transition:color .35s var(--ease),opacity .35s var(--ease)}
+html.fx-read .idea-grid .rw.lit{color:var(--ink);opacity:1}
+html.fx-read .idea-grid p b .rw{font-weight:600}
+
+/* ---------- Tour dot on the floor plan ---------- */
+html.fx-tour .tour-dot{pointer-events:none;transition:transform 1.1s cubic-bezier(.65,0,.35,1)}
+html.fx-tour .tour-dot .core{fill:var(--clay);stroke:var(--paper);stroke-width:2.5}
+html.fx-tour .tour-dot .ring{fill:none;stroke:var(--clay);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:tourPulse 1.8s ease-out infinite}
+@keyframes tourPulse{from{transform:scale(.6);opacity:.9}to{transform:scale(2.2);opacity:0}}
+
+/* ---------- Colour flow: each colour change becomes a soft gradient that lives only in the
+   empty padding between sections, so text always sits on its section's own solid colour.
+   fx.js sets --flow-prev / --flow-self / --flow-next on each section. ---------- */
+html.fx-flow main > section.flow,
+html.fx-flow .finale > section.flow{
+  background:linear-gradient(to bottom,
+    var(--flow-prev) 0, var(--flow-self) var(--flow-top, var(--section)),
+    var(--flow-self) calc(100% - var(--flow-bottom, var(--section))), var(--flow-next) 100%);
+}
+
+/* ---------- Smooth scrolling (Lenis, laptops only) ---------- */
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* ---------- Reduced motion: effects that move are off (colour flow stays, it doesn't move anything) ---------- */
+@media (prefers-reduced-motion:reduce){
+  html.fx-deal .m-grid:not(.dealt) .m-card{opacity:1}
+  html.fx-read .idea-grid .rw{color:inherit;opacity:1}
+  html.fx-tour .tour-dot{display:none}
+}

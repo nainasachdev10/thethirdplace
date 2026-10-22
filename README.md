@@ -13,6 +13,8 @@ A static site: plain HTML, CSS and JavaScript with no build step. It runs on any
 ├── css/styles.css      # all styles (design tokens at the top)
 ├── js/main.js          # menu, floor plan, seat finder, enquiry form
 ├── js/motion.js        # intro, cursor, word reveals, scroll animations (off for reduced motion)
+├── js/fx.js            # optional effects, each with an on/off switch (see below)
+├── css/fx.css          # styles for those effects (only apply when switched on)
 ├── assets/             # favicons + social share image
 ├── apps-script/Code.gs # Google Apps Script that writes enquiries to the Google Sheet
 ├── robots.txt
@@ -35,6 +37,25 @@ Then open http://localhost:8000.
 - **Colours, type sizes, spacing, corner radius:** change the tokens in `:root` at the top of `css/styles.css`. Everything else uses them.
 - **Phone / WhatsApp number:** `WA_NUMBER` at the top of `js/main.js`, plus the `tel:` links and the number shown in `index.html`.
 - **Instagram:** search `index.html` for `_the3rdplace_`.
+
+## Optional effects (easy to switch off)
+
+The switches are at the top of `js/fx.js`:
+
+```js
+const FX = {
+  dealCards:    true,  // Memberships: cards fan in from a stack and land in place
+  shuffle:      false, // Memberships: the "I'm…" finder shuffles the deck, match lands on top
+  readAlong:    true,  // The idea: text turns from faint Stone to Ink as you scroll
+  tourDot:      true,  // The floor: a clay dot walks between zones
+  colourFlow:   false, // Soft colour transitions between Paper, tint and Ink sections
+  smoothScroll: true,  // Momentum scrolling, laptops/desktops only (Lenis, loaded from jsDelivr)
+};
+```
+
+Set any of them to `false` and that effect is gone completely (its styles in `css/fx.css` stop applying too).
+To remove all of them, delete the `fx.css` link and the `lenis` and `fx.js` script tags from `index.html`.
+All effects respect "reduce motion" settings; smooth scrolling only runs on laptops/desktops with a mouse or trackpad.
 
 ## Updating the live site
 
