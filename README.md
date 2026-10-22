@@ -15,6 +15,8 @@ A static site: plain HTML, CSS and JavaScript with no build step. It runs on any
 ├── js/motion.js        # intro, cursor, word reveals, scroll animations (off for reduced motion)
 ├── js/fx.js            # optional effects, each with an on/off switch (see below)
 ├── css/fx.css          # styles for those effects (only apply when switched on)
+├── js/story.js         # scroll set pieces + section rail, progress line, label dots (switches at the top)
+├── css/story.css       # styles for the story layer
 ├── assets/             # favicons + social share image
 ├── apps-script/Code.gs # Google Apps Script that writes enquiries to the Google Sheet
 ├── robots.txt
@@ -56,6 +58,31 @@ const FX = {
 Set any of them to `false` and that effect is gone completely (its styles in `css/fx.css` stop applying too).
 To remove all of them, delete the `fx.css` link and the `lenis` and `fx.js` script tags from `index.html`.
 All effects respect "reduce motion" settings; smooth scrolling only runs on laptops/desktops with a mouse or trackpad.
+
+## Story layer (easy to switch off)
+
+The scroll story lives in `js/story.js` and `css/story.css`. The switches are at the top of `js/story.js`:
+
+```js
+const STORY = {
+  dive:        true,  // hero → The idea: zoom into the clay dot beside "Yours." and fall through it
+  floor3d:     true,  // The floor: the plan tilts into a 3D model and the camera flies room to room
+  onAir:       true,  // The Studio: lights down, ON AIR sign, a waveform that reacts to you, credits roll
+  crowd:       true,  // Community: dots (people) swarm into NASHIK, then into the logo
+  calendarArt: true,  // Community: a line-art wall calendar beside the event cards, drawn as you scroll
+  lift:        true,  // Visit: a lift rides to the 4th floor and its doors open onto the form
+  footDot:     true,  // Footer: the clay dot follows you, then clicks into place in the logo
+  rail:        true,  // section names in the left margin (wide screens only, never over content)
+  progress:    true,  // thin clay line under the header showing how far down the page you are
+  labelDots:   true,  // the logo's three dots pop in beside every section label
+  studioRec:   false, // The Studio: small "REC" waveform under the heading (replaced by onAir)
+  askUs:       true,  // "Ask us?" beside the floating WhatsApp button (laptops)
+};
+```
+
+Everything in the story layer is created by `story.js`, so a switch set to `false` leaves that part of the page exactly as it was before.
+To remove the whole layer, delete the `story.css` link and the `story.js` script tag from `index.html`.
+With "reduce motion" on, the big set pieces are skipped (the page shows its normal sections) and the calendar drawing simply appears finished.
 
 ## Updating the live site
 

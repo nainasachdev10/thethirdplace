@@ -210,7 +210,7 @@ section{position:relative;padding-block:var(--section)}
   .nav-links a::before{display:none}
   .nav-links a .n{width:var(--s-6);font-family:var(--mono);font-weight:400;font-size:var(--t-label);letter-spacing:.1em;color:var(--clay)}
   .nav-links .menu-cta{border:none;padding-top:var(--s-5);display:flex;flex-direction:column;gap:var(--s-3)}
-  .nav-links .menu-cta a{justify-content:center;padding:0 var(--s-5);font-family:var(--ui);font-size:.9375rem;font-weight:600}
+  .nav-links .menu-cta a{justify-content:center;align-items:center;padding:0 var(--s-5);font-family:var(--ui);font-size:.9375rem;font-weight:600}
   .nav-links .menu-cta .btn-clay{color:var(--paper)}
 }
 @media(max-width:380px){.lockup{font-size:1rem}.lockup .mk{width:48px}}
@@ -625,6 +625,7 @@ form .sub{color:var(--text-2-ink)}
 .cursor.clay .cursor-dot{background:var(--paper)}
 .cursor.clay.label .cursor-ring{background:var(--ink);border-color:var(--ink)}
 .cursor.down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
+.cursor.label.down .cursor-ring{width:80px;height:80px;margin:-40px 0 0 -40px}   /* pressing a labelled item keeps the word readable */
 .cursor.hidden .cursor-dot,.cursor.hidden .cursor-ring{opacity:0}
 
 /* ---------- Hero badge + parallax ---------- */

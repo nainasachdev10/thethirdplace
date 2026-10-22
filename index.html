@@ -20,9 +20,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;1,300&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261023g">
+<link rel="stylesheet" href="css/styles.css?v=20261024b">
 <!-- Optional effects (switches in js/fx.js). Remove this line + the two fx scripts below to turn them all off. -->
 <link rel="stylesheet" href="css/fx.css?v=20261023g">
+<!-- Story layer (switches in js/story.js). Remove this line + the story.js script below to turn it all off. -->
+<link rel="stylesheet" href="css/story.css?v=20261024m">
 <script>(function(c){c.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)c.add('intro')}catch(e){}
 /* every load and refresh starts at the top: no restored scroll, and any #section is dropped from the address */
 if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search)})(document.documentElement.classList)</script>
@@ -214,7 +216,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
             <path class="detail" d="M488 74h128M488 124h128M552 24v152"/>
             <g class="badge"><circle cx="520" cy="150" r="13"/><text x="520" y="150">06</text></g>
           </g>
-          <!-- Balcony -->
+          <!-- Terrace -->
           <g class="fz" data-z="6">
             <rect class="room" x="488" y="192" width="128" height="204" rx="3"/>
             <rect x="500" y="204" width="104" height="180" fill="url(#hatch)" class="detail" style="stroke:none"/>
@@ -238,7 +240,7 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
           <div class="zone-body"><div><p><span class="for">Launches · talks · screenings</span>A glass partition folds back and the floor becomes a stage. When Nashik has something to say, this is where it says it.</p></div></div></li>
         <li><button class="zone-btn" aria-expanded="false"><span class="zn">06</span><span class="zt">Quiet pods</span><span class="zp"></span></button>
           <div class="zone-body"><div><p><span class="for">Calls &amp; deep work</span>For the calls, the deep work, and the moments you need the door shut.</p></div></div></li>
-        <li><button class="zone-btn" aria-expanded="false"><span class="zn">07</span><span class="zt">The balcony</span><span class="zp"></span></button>
+        <li><button class="zone-btn" aria-expanded="false"><span class="zn">07</span><span class="zt">The terrace</span><span class="zp"></span></button>
           <div class="zone-body"><div><p><span class="for">Step out &amp; breathe</span>Fresh air, a second coffee, and the conversations that don’t happen at a desk.</p></div></div></li>
       </ul>
     </div>
@@ -622,10 +624,9 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
       <div class="foot-col">
         <h5>Visit</h5>
         <ul>
-          <li>4th floor, Livin Solitaire, Canada Corner, Nashik, Maharashtra</li>
+          <li><a href="https://maps.app.goo.gl/1AevwpqKr2Qg9J1t9" target="_blank" rel="noopener">4th floor, Livin Solitaire, Canada Corner, Nashik, Maharashtra ↗</a></li>
           <li>Mon–Sat, 9 AM – 9 PM</li>
           <li><a href="tel:+919185151597">+91 91851 51597</a></li>
-          <li><a href="https://maps.app.goo.gl/1AevwpqKr2Qg9J1t9" target="_blank" rel="noopener">Get directions ↗</a></li>
         </ul>
       </div>
     </div>
@@ -655,5 +656,6 @@ if('scrollRestoration' in history)history.scrollRestoration='manual';if(location
 <!-- Optional effects: smooth-scroll library (pinned version + integrity check) and the effects file -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous" defer></script>
 <script src="js/fx.js?v=20261023h" defer></script>
+<script src="js/story.js?v=20261024l" defer></script>
 </body>
 </html>
